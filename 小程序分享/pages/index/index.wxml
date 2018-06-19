@@ -5,6 +5,13 @@
 <view>
   <button class='inputStyle' bindtap="videoFunction">视频处理</button>
 </view>
+<view>
+  <button class='inputStyle' bindtap="getUserInfo">用户信息获取</button>
+</view>
+<view wx:if='{{avatarurl}}'>
+  <image src='{{avatarurl}}'></image>
+  <text>{{nickName}}</text>
+</view>
 <view class='imageContainer' >
   <image wx:for="{{imageUrls}}" class='imgStyle' src='{{item}}' data-index='{{index}}' bindtap="onclickImage" ></image>
 </view>

@@ -6,7 +6,9 @@ Page({
   data: {
     imageUrls:{},
     videoSrc:{},
-    inputLine:''
+    inputLine:'',
+    avatarurl:'',
+    nickName:''
   },
   //事件处理函数
 
@@ -16,6 +18,35 @@ Page({
   onReady:function()
   {
     this.videoContext = wx.createVideoContext('myVideo');
+
+
+  },
+  getUserInfo:function()
+  {
+    var _this = this;
+    wx.login({
+      success: function (res) {
+        if (res.code) {
+          console.log("用户登录成功");
+          wx.getUserInfo({
+            success: function (res2) {
+              var userInfo = res2.userInfo;
+              var name = userInfo.nickName;
+              var avatarUrl = userInfo.avatarUrl;
+              var gender = userInfo.gender;
+              var province = userInfo.province;
+              var city = userInfo.city;
+              _this.setData({
+                avatarurl: avatarUrl,
+                nickName: name
+              })
+              console.log("获取用户信息：suc");
+            }
+
+          })
+        }
+      }
+    })
   }
 
   ,
