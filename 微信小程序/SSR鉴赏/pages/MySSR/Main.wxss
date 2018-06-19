@@ -1,0 +1,4 @@
+/* pages/MySSR/Main.wxss */
+.middle{margin: 0 auto;}
+#slideImage{width: 100%}
+#slideImage2{width: 100%}
